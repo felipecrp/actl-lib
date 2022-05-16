@@ -3,10 +3,16 @@ package actl.lib.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
+
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
+@MappedSuperclass
 @EqualsAndHashCode
 public abstract class Resource {
     @Getter @Setter
@@ -14,9 +20,11 @@ public abstract class Resource {
 
     @Getter @Setter
     @EqualsAndHashCode.Exclude
+    @Transient
     private Set<Access> accesses;
 
     @Getter @Setter
+    @ManyToOne
     private Repository repository;
 
     public Resource() {
@@ -24,7 +32,8 @@ public abstract class Resource {
     }
 
     public Resource(Repository repository, String name) {
-        this.accesses = new HashSet<>();
+        this.repository = repository;
         this.name = name;
+        this.accesses = new HashSet<>();
     }
 }

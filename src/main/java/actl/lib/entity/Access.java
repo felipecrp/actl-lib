@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+// @Entity
 @EqualsAndHashCode
 public class Access {
     @Id

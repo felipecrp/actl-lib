@@ -16,7 +16,7 @@ public class Role extends Resource {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter @Setter
     @EqualsAndHashCode.Exclude
-    private Long id;
+    private long id;
 
     public Role() {}
 

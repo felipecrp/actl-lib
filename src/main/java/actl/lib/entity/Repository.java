@@ -14,6 +14,7 @@ import lombok.Setter;
 public class Repository {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @EqualsAndHashCode.Exclude
     @Getter @Setter
     private long id;
 
